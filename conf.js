@@ -1,4 +1,4 @@
-// Tests for the calculator.
+// Test the hearbet app
 exports.config = {
   directConnect: true,
 
