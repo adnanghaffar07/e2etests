@@ -3,9 +3,9 @@ var UserData = function() {
 
     var _this = this;
     _this.data = {
-        email: 'u2metest3@gmail.com',
+        email: '@gmail.com',
         password: '$Abcd1234',
-        invalidEmail: 'u2metes3@gmail.com',
+        invalidEmail: '@gmail.com',
         invalidPassword: 'tests$12',
         invalidFormatPassword: 'tests',
         invalidFormatEmail: 'testco',

@@ -4,7 +4,7 @@ var SignUpData = function() {
     var _this = this;
     _this.data = {
         email: 'test@mailinator.com',
-        existingEmail: 'u2metest3@gmail.com',
+        existingEmail: '@gmail.com',
         password: '$Abcd1234',
         passwordTwo: '$Abcd12345',
         invalidPasswordWithoutLowerCaseCharacters: 'TESTS$123',

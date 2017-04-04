@@ -1,31 +1,37 @@
-// Test the hearbet app
+//config
 exports.config = {
-  directConnect: true,
 
-  framework: 'jasmine2',
+    onPrepare: function() {
+        global.requireProviders = function(relativePath) {
+            return require('./common/providers/' + relativePath + '.js');
+        };
 
-  specs: [
-    'spec.js'
-  ],
+        global.requirePageObjects = function(relativePath) {
+            return require('./page_objects/' + relativePath + '.js');
+        };
+    },
 
-  capabilities: {
-    'browserName': 'chrome'
-  },
+    framework: 'jasmine2',
+    suites: {
+        signUp: [
+            'suites/functional/uc_su001_sign_up_by_email/uc_su001.spec.js',
+            //'suites/functional/uc_su001_sign_up_by_email/uc_su001_001.spec.js',
+        ],
+        signIn: [
+            'suites/functional/uc_si001_sign_in_by_email/uc_si001.spec.js',
+            //'suites/functional/uc_si001_sign_in_by_email/static_links.spec.js',
+        ],
+        account: [
+           // 'suites/functional/us_p001_change_sigin_password/uc_p001.spec.js',
+            'suites/functional/uc_ps001_change_profile_setting/uc_ps001.spec.js',
+        ],
+    },
+    capabilities: {
+        browserName: 'chrome',
+        shardTestFiles: false,
+    },
     jasmineNodeOpts: {
-    showColors: true, // Use colors in the command line report.
-  }
-  /*  jasmineNodeOpts: {
-  // If true, print colors to the terminal.
-  showColors: true,
-  // Default time to wait in ms before a test fails.
-  defaultTimeoutInterval: 30000,
-  // Function called to print jasmine results.
-  print: function() {},
-  // If set, only execute specs whose names match the pattern, which is
-  // internally compiled to a RegExp.
-  grep: 'pattern',
-  // Inverts 'grep' matches
-  invertGrep: false
-}
-*/
+        showColors: true, // Use colors in the command line report.
+        defaultTimeoutInterval: 25000,
+    },
 };
